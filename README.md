@@ -53,3 +53,56 @@ testable code is preferred.
 
 # Solution
 
+## Quick Start
+
+```python
+$ ./rms_tech_test.py TechConsultingTestGrid.csv --contiguous-integers 3
+```
+
+### Output
+
+```python
+========== QUESTION 1 ==========
+How many different combinations are there of 3 adjacent numbers in the same direction (up, down, left, right or diagonally) in the 10 x 10 grid?
+Answer: 288
+========== QUESTION 2 ==========
+What is the greatest product of 3 adjacent numbers in the same direction (up, down, left, right or diagonally) in the 10 x 10 grid?
+Answer: 667,755
+```
+
+## Validation
+
+The `validate_grid()` function carries out some high-level checks of the input grid and the contiguous integers argument:
+
+- Contiguous integers value must be greater than 0
+- Contiguous integers value must be an integer
+- Grid must not contain null values
+- Grid must not contain non-numeric values
+- Grid must be at least 1x1
+- Grid must be wider and taller than contiguous integers value
+
+Further assumptions are described in the next section.
+
+## Assumptions
+
+### Cells are non-directional
+
+As stated in the instructional PDF, there is the following clarification:
+
+- Contiguous cells are considered the same whether read left-to-right or right-to-left
+
+The assumption is that this also applies to:
+
+- up-to-down and down-to-up
+- top-left-to-bottom-right and bottom-right-to-top-left
+- top-right-to-bottom-left and bottom-left-to-top-right
+
+In short, the assumption is that contiguous cells are non-directional.
+
+### Grids are uniform
+
+Grid of size *n x m* are assumed to be uniform in that rows and columns are assumed to be of the same size i.e., grids are rectangular.
+
+### Cells are squares
+
+It is assumed cells are squares (and not other tessellating shapes such as hexagons).
